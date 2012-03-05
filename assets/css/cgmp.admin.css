@@ -1,0 +1,639 @@
+/*
+Copyright (C) 2011  Alexander Zagniotov
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+/* Slider
+----------------------------------*/
+ 
+.ui-corner-all { 
+-moz-border-radius: 5px; 
+-webkit-border-radius: 5px; 
+border-radius: 5px;}
+
+.ui-slider { position: relative; text-align: left; }
+.ui-slider .ui-slider-handle { position: absolute; z-index: 2; width: 1.2em; height: 1.2em; cursor: default; }
+
+.ui-slider-horizontal { height: .8em; }
+.ui-slider-horizontal .ui-slider-handle { top: -.3em; margin-left: -.5em; }
+
+.ui-slider {
+    position: absolute !important;
+}
+
+.ui-slider-horizontal {
+    height: 0.5em !important;
+    background:#ECECEC url(images/h30.png) repeat-x 0 0 !important; 
+    border: 1px solid #888888;
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+    background:#fff url(images/h30.png) repeat-x 0 0 !important; 
+	height:18px !important;
+	width:10px !important;
+	top:-7px !important;
+	/*position:absolute !important; 
+	display:block !important; 
+	margin-top:1px !important; */
+	border:1px solid #000 !important;
+	cursor:move !important;
+	-moz-box-shadow:0 0 2px #000 !important;
+	-webkit-box-shadow:0 0 6px #000 !important;
+	-moz-border-radius:14px !important;
+	-webkit-border-radius:14px !important; 
+}
+
+ul.custom-icons-placeholder { 
+    padding-top: 6px !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    float: left !important;
+    
+    background-color: #F1F1F1;
+    background-image: -moz-linear-gradient(center top , #F8F8F8, #F1F1F1);
+    border-color: #D1D1D1 #D1D1D1 #C1C1C1;
+    border-radius: 3px 3px 3px 3px;
+    border-style: solid;
+    border-width: 1px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    padding-bottom: 8px;
+}
+
+ul.custom-icons-placeholder li {
+    display: inline !important;
+    list-style-type: none !important;
+    padding-right: 0 !important;
+}
+
+ul.custom-icons-placeholder li img {
+    border: 1px solid transparent;
+}
+
+/*
+ul.custom-icons-placeholder li img:hover {
+    border: 1px solid green;
+    border-radius: 3px 3px 3px 3px;
+}*/
+
+
+#shortcode-placeholder {
+	padding: 7px;
+	display: none;
+	-webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+	background-color: white;
+	border: 1px solid #D1D1D1;
+	text-align: left;
+	width: 445px;
+}
+
+#google-map-container-metabox fieldset,
+#google-map-container-settings fieldset,
+.tools-tabs .documentation fieldset,
+.tools-tabs .shortcodebuilder fieldset,
+.widget-google-map-container fieldset {
+        border-top: 1px solid #D1D1D1;
+        border-left: 1px solid #D1D1D1;
+		border-right: 1px solid #D1D1D1;
+		border-bottom: 1px solid #c1c1c1;
+		-webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        padding-top: 10px;
+        padding-right: 10px;
+        padding-left: 10px;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+        background-color: #F1F1F1;
+		background-image: -moz-linear-gradient(center top , #F8F8F8, #F1F1F1);
+}
+
+.widget-google-map-container table {
+		width: 554px !important;
+        /*border: 1px solid black;*/
+}
+
+#google-map-container-metabox table td,
+.tools-tabs .shortcodebuilder table td ,
+.widget-google-map-container table td {
+		text-align: right;
+        padding-right: 5px;
+        /*border: 1px solid black;*/
+}
+
+#google-map-container-settings table td {
+		text-align: left;
+        padding: 5px;
+        /*border: 1px solid black;*/
+}
+
+.tools-tabs .documentation table td {
+        vertical-align: top;
+		text-align: justify;
+        padding: 10px;
+}
+
+.widget-google-map-container table td {
+		width: 95px !important; /* 4*95 + 4*5(padding) == 460px */
+}
+
+#google-map-container-settings fieldset table,
+#google-map-container-metabox fieldset table,
+.tools-tabs .shortcodebuilder fieldset table {
+		width: 602px !important;
+}
+
+#google-map-container-settings table td,
+#google-map-container-metabox table td,
+.tools-tabs .shortcodebuilder table td {
+		width: 145px !important; /* 4*145 + 4*5(padding) == 660px */
+}
+
+.tools-tabs .documentation fieldset table {
+        width: 99% !important;
+}
+
+#google-map-container-settings fieldset label,
+#google-map-container-metabox fieldset label,
+.tools-tabs .documentation fieldset label,
+.tools-tabs .shortcodebuilder fieldset label,
+.widget-google-map-container fieldset label {
+        color: #333333;
+}    
+
+#google-map-container-settings fieldset label {
+    padding: 5px;
+    vertical-align: top;
+}
+
+#google-map-container-settings legend,
+#google-map-container-metabox legend,
+.tools-tabs .documentation legend,        
+.tools-tabs .shortcodebuilder legend,
+.widget-google-map-container legend {
+		padding: 0.2em;
+		color:gray;
+		font-size: 100%;
+		text-align:right;
+}
+
+#google-map-container-settings input,
+#google-map-container-metabox input,
+.tools-tabs .documentation input,
+.tools-tabs .shortcodebuilder input,
+.widget-google-map-container input {
+		margin-bottom: 3px;
+}
+
+.widget-google-map-container input[type="text"] {
+		width: 120px;
+}
+
+
+.widget-google-map-container select {
+    width: 85px;
+}
+
+.tools-tabs .shortcodebuilder select,
+.tools-tabs .shortcodebuilder input[type="text"] {
+		width: 180px;
+}
+
+#google-map-container-settings select,
+#google-map-container-metabox select,
+.tools-tabs .shortcodebuilder select {
+    width: 115px;
+}
+
+.tools-tabs .shortcodebuilder select,
+.widget-google-map-container select {
+		height: 1.8em !important;
+        padding: none !important;
+}
+
+#google-map-container-metabox select,
+#google-map-container-metabox input[type="text"],
+.tools-tabs .shortcodebuilder select,
+.tools-tabs .shortcodebuilder input[type="text"],
+.widget-google-map-container select,
+.widget-google-map-container input[type="text"] {
+    border-color: #B8B8B8;
+}
+
+.google-map-tooltip {
+	display:none;
+	/*background:transparent url("images/black_arrow.png");*/
+    border: 5px solid #777777;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+	/*height:70px; */
+	width:175px;
+    background-color: #000;
+	padding:15px;
+    text-align: left;
+	color:#fff;	
+    font-size: 11px;
+    font-family: verdana;
+    z-index: 9999999999;
+}
+
+ul.tools-tabs-nav {
+	margin-bottom: -1px;
+	padding-left: 4.2em;
+	/*overflow: hidden;*/
+	white-space: nowrap;
+	padding-right: 3.5em;
+	padding-top: 3.1em;
+}
+
+input.slider-output {
+    width: 60px;
+    border: 1px solid #999999;
+}
+
+input.marker-location-text {
+    width: 90% !important; 
+    font-size: 16px; 
+    padding: 4px 0px 2px 36px; 
+    height: 32px !important;
+}
+
+
+input.default-marker-icon {
+    background: url('images/markers/1-default.png') no-repeat scroll 0px 0px #F9F9F9 !important
+}
+
+span.italic {
+    font-style: normal;
+    color: green;
+}
+
+span.sep {
+    font-style: normal;
+    color: red;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.widget-google-map-container div.slider {
+    margin-left: 5px;
+    margin-top: 7px;
+    width: 50px;
+}
+
+.tools-tabs .shortcodebuilder div.slider {
+    margin-left: 7px;
+    margin-top: 7px;
+    width: 60px;
+}
+
+ul.tools-tabs-nav li {
+	display: inline-block;
+	margin: 0 0.2em 0 0;
+	border: 1px solid #DFDFDF;
+	background: none repeat scroll 0 0 #F8F8F8;
+	
+	border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+	
+	-moz-border-radius-topright: 6px;
+	-moz-border-radius-topleft: 6px;
+	
+	-webkit-border-top-right-radius: 6px;
+	-webkit-border-top-left-radius: 6px;
+	
+	font-weight: bold;
+	text-shadow: 0 1px 0 #FFFFFF;
+	max-width: 20%;
+	overflow: hidden;
+	text-align: center;
+}
+
+
+ul.tools-tabs-nav li.current {
+	background: white;
+	color: black;
+	border-bottom-color: white;
+	-moz-box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.06);
+	-webkit-box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.06);
+	box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.06);
+}
+
+ul.tools-tabs-nav li a {
+	display: inline-block;
+	text-decoration: none;
+	color: #C1C1C1;
+	padding: 0.6em 1em;
+}
+
+ul.tools-tabs-nav li.current a {
+	color: black;
+}
+
+.tools-tabs .tools-tab-body {
+	border: 1px solid #DFDFDF;
+	border-top-width: 1px;
+	padding-bottom: 1em;
+	background: white;
+	margin-top: -70px;
+	padding: 63px 20px 25px 50px;
+	min-height: 300px;
+    width: 70%;
+	
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+	
+	-moz-border-radius-topright: 6px;
+	-moz-border-radius-bottomright: 6px;
+	-moz-border-radius-bottomleft: 6px;
+	
+	-webkit-border-top-right-radius: 6px;
+	-webkit-border-bottom-right-radius: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+}
+
+.tools-tabs .tools-tab-content {
+	padding-top: 25px;
+	border-top: 1px solid #DFDFDF;
+}
+
+.tools-tabs .documentation a {
+	display: none !important;
+}
+
+
+/* Tokens */
+/* Example tokeninput style #1: Token vertical list*/
+ul.token-input-list {
+    overflow: hidden; 
+    height: auto !important; 
+    height: 1%;
+    width: 100%;
+    cursor: text;
+    font-size: 12px;
+    font-family: Verdana;
+    z-index: 999;
+    margin: 0;
+    padding: 0;
+    /*
+    background-color: #fff;
+    border: 1px solid #999;
+    */
+    list-style-type: none;
+    clear: left;
+     border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+ul.token-input-list li {
+    list-style-type: none;
+}
+
+ul.token-input-list li input {
+    border: 0;
+    width: 350px;
+    padding: 3px 8px;
+    background-color: white;
+    -webkit-appearance: caret;
+}
+
+li.token-input-token {
+    overflow: hidden; 
+    height: 38px !important;
+    height: 1%;
+    margin: 3px;
+    padding: 3px 5px;
+    background: none repeat scroll 0 0 #E2E6F0;
+    color: #1C2A47;
+    border: 1px solid #9DACCC;
+    font-size: 11px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    /* font-weight: bold; */
+    cursor: default;
+    display: block;
+}
+
+li.token-input-token p {
+    font-size: 15px !important;
+    padding-top: 10px !important;
+}
+
+.tools-tabs .shortcodebuilder div#google_map_shortcode_builder li.token-input-token p {
+    margin: -1px 0 0 !important;
+}
+
+li.token-input-highlighted-token {
+    background-color: #D0D6E7;
+    border: 1px solid #8D9EC4;
+     border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+li.token-input-input-token {
+/*
+    display: block;
+    font-weight: bold;
+    height: auto !important;
+    margin: 3px;
+    overflow: hidden;
+    padding: 3px 5px;
+*/
+}
+
+li.token-input-token p {
+    float: left;
+    padding: 0;
+    margin: 0;
+}
+
+li.token-input-token span {
+    float: right;
+    color: #777;
+    cursor: pointer;
+}
+
+li.token-input-token span.token-input-delete-token-highlighted {
+    color: #eee;
+    background-color: #475C8A;
+}
+
+li.token-input-selected-token {
+    background-color: #08844e;
+    color: #fff;
+}
+
+li.token-input-selected-token span {
+    color: #bbb;
+}
+
+.uiCloseButton {
+    background-image: url("images/facebook-axis.png");
+    background-repeat: no-repeat;
+    height: 15px;
+    width: 15px;
+}
+
+.errorToken {
+    border: 1px solid red !important;
+}
+
+.uiCloseButton:hover, .uiCloseButton:focus {
+    background-position: left -32px;
+}
+.uiCloseButton:active {
+    background-position: left -48px;
+}
+
+.uiCloseButtonSmall {
+    background-image: url("ogYrclupeJV.png");
+    height: 11px;
+    margin-top: 2px;
+    width: 11px;
+}
+
+.uiCloseButtonSmall:hover, .uiCloseButtonSmall:focus {
+    background-position: left -24px;
+}
+.uiCloseButtonSmall:active {
+    background-position: left -36px;
+}
+
+div.token-input-dropdown {
+    position: absolute;
+    width: 400px;
+    background-color: #fff;
+    overflow: hidden;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    cursor: default;
+    font-size: 12px;
+    font-family: Verdana;
+    z-index: 1;
+}
+
+div.token-input-dropdown p {
+    margin: 0;
+    padding: 5px;
+    font-weight: bold;
+    color: #777;
+}
+
+div.token-input-dropdown ul {
+    margin: 0;
+    padding: 0;
+}
+
+div.token-input-dropdown ul li {
+    background-color: #fff;
+    padding: 3px;
+    list-style-type: none;
+}
+
+div.token-input-dropdown ul li.token-input-dropdown-item {
+    background-color: #fafafa;
+}
+
+div.token-input-dropdown ul li.token-input-dropdown-item2 {
+    background-color: #fff;
+}
+
+div.token-input-dropdown ul li em {
+    font-weight: bold;
+    font-style: normal;
+}
+
+div.token-input-dropdown ul li.token-input-selected-dropdown-item {
+    background-color: #d0efa0;
+}
+
+fieldset.collapsible {
+
+}
+
+#google-map-container-metabox fieldset.collapsed,
+.tools-tabs .shortcodebuilder fieldset.collapsed,
+.widget-google-map-container  fieldset.collapsed {
+    border: 1px solid #777 !important;
+}
+
+#google-map-container-metabox legend.collapsible,
+.tools-tabs .shortcodebuilder legend.collapsible,
+.widget-google-map-container legend.collapsible {
+    color:gray !important;
+}
+
+#google-map-container-metabox legend.collapsed,
+.tools-tabs .shortcodebuilder legend.collapsed,
+.widget-google-map-container legend.collapsed {
+    color: #333 !important;
+}
+
+#mask {
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:9000;
+  background-color: #000;
+  display:none;
+}
+  
+.window {
+  position:fixed;
+  left:0;
+  top:0;
+  width:440px;
+  height:200px;
+  display:none;
+  z-index:9999;
+  padding:20px;
+}
+
+div#shortcode-dialog {
+  /*background:url("images/notice-2.png") no-repeat 0 0 transparent; */
+  width:560px; 
+  height:280px;
+  background-color: #efefef;
+  color: #222;
+  border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-box-shadow: 0px 5px 30px #000;
+-webkit-box-shadow: 0px 5px 30px #000;
+box-shadow: 0px 5px 30px #000;
+}
+
+div#inner-shortcode-dialog {
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border: 1px solid gray;
+    padding: 8px;
+    background-color: #fff;
+    overflow: auto;
+    height: 90px;
+}
